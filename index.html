@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast Application</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
     <script src="index.js"></script>
 </head>
@@ -11,30 +12,29 @@
     <header class="text-center dark:text-white p-2 bg-gradient-to-r from-blue-400 to-purple-600 shadow-md w-full">
         <Span class="text-4xl font-bold center">Weather Forecast Application</Span>     
     </header>
-    <section class="bg-gradient-to-r from-blue-400 to-purple-600 flex items-center justify-center min-h-screen">
+    <section class="bg-gradient-to-r from-blue-400 to-purple-600 flex items-start justify-center min-h-screen">
         <div class="w-full max-w-4xl p-5 bg-white shadow-lg rounded-lg">
             <h1 class="text-2xl font-bold text-center text-white bg-gradient-to-r from-blue-400 to-purple-600 py-3 rounded-lg">Weather Dashboard</h1>
     
             <!-- Search Section -->
-            <div class="mt-4 flex flex-col md:flex-row items-center gap-3">
-                <select id="recentSearches" class="w-full p-2 border rounded-lg hidden">
+            <div class="mt-4 flex items-center gap-3">
+                <!-- Recent Searches Dropdown -->
+                <select id="recentSearches" class="w-full p-2 border rounded-lg hidden" aria-label="recentSearches">
                     <option value="">Recent Searches</option>
                 </select>
                 <input id="cityInput" type="text" placeholder="Enter city name..."
                     class="w-full p-2 border rounded-lg focus:outline-none">
-                <button id="search_Btn" class="bg-blue-400 w-24 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md">Search</button>
+                <button id="search_Btn" class="bg-blue-400 w-24 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
+                                                 hover:bg-blue-500 hover:shadow-lg hover:scale-105 transition duration-300">Search</button>
                 <span class="font-bold">Or</span>
-                <button id="locationBtn" class="bg-purple-600 w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md">📌Use Current Location</button>
+                <button id="locationBtn" class="bg-purple-600 w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
+                                                hover:bg-purple-700 hover:shadow-lg hover:scale-105 transition duration-300">📌Use Current Location</button>
             </div>
 
-            <!-- Recent Searches Dropdown -->
-            <div class="mt-4">
-                
-            </div>
-    
             <!-- Current Weather Section -->
-            <div id="currentWeather" class="mt-6 bg-blue-200 p-4 rounded-lg hidden"> 
-                <h2 class="text-xl font-semibold" id="cityName"></h2>
+            <div id="currentWeather" class="card mt-6 bg-blue-200 p-4 rounded-lg hidden">
+                <h2 class="text-xl font-bold" id="cityName"></h2>
+                <p id="sectiondate" class="text-lg font-semibold"></p>
                 <p id="weatherDesc" class="text-lg"></p>
                 <p>🌡️ <span id="temperature"></span>°C</p>
                 <p>💨 Wind: <span id="windSpeed"></span> m/s</p>
@@ -42,15 +42,28 @@
             </div>
     
             <!-- 5-Day Forecast -->
-            <h3 class="text-xl text-center font-semibold mt-6">5-Day Forecast</h3>
-            <div id="forecastContainer" class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-3">
+             <div id="dayforecast" class="hidden">
+                <h3 class="text-xl text-center font-semibold mt-6">5-Day Forecast</h3>
+                <div id="forecastContainer" class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-3">
 
-            </div>
-    
-            
-        </div>
-        
+                </div>
+
+             </div>        
+        </div>      
     </section>
-    
+    <div id="successMessage" class="fixed top-5 left-1/2 -translate-x-1/2 bg-red-600 text-white px-5 py-2 rounded-md text-lg shadow-lg opacity-0 transition-opacity duration-300">
+        Please enter a location or use current location
+    </div>
+
+    <!-- Footer Section -->
+  <footer class="py-6 bg-gradient-to-r from-blue-400 to-purple-600 text-center text-white">
+    <div class="space-x-6">
+      <a href="https://in.linkedin.com/" aria-label="LinkedIn" class="icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/" aria-label="GitHub" class="icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      <a href="https://x.com/" aria-label="Twitter" class="icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/" aria-label="Instagram" class="icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>        
+    </div>
+    <p>&copy; 2025 Nithish Weather Forecast Application. All rights reserved.</p> 
+  </footer>
 </body>
 </html>

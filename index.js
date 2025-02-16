@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to display current weather
     function displayCurrentWeather(data) {
-        document.getElementById("cityName").textContent = `${data.name} (${new Date().toISOString().split('T')[0].split('-').reverse().join('-')})`;
+        document.getElementById("cityName").textContent = `${data.name}`;
+        document.getElementById("sectiondate").textContent = `${new Date().toISOString().split('T')[0].split('-').reverse().join('-')}`;
         document.getElementById("weatherDesc").textContent = data.weather[0].description;
         document.getElementById("temperature").textContent = data.main.temp;
         document.getElementById("windSpeed").textContent = data.wind.speed;
@@ -50,16 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to display 5-day forecast
     function displayForecast(forecastData) {
         forecastContainer.innerHTML = "";
+        const dayforecast = document.getElementById("dayforecast");
+        dayforecast.classList.remove("hidden");
 
         for (let i = 0; i < forecastData.length; i += 8) { // Get one forecast per day
             const day = forecastData[i];
             const date = day.dt_txt.split(" ")[0].split('-').reverse().join('-');
-            console.log(day);
-            console.log(date);
             const day_value = new Date(day.dt_txt.split(" ")[0]);
             const dayOfWeek = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(day_value);
-            console.log(day_value);
-            console.log(dayOfWeek);
             const temp = day.main.temp;
             const wind = day.wind.speed;
             const humidity = day.main.humidity;
@@ -125,9 +124,25 @@ document.addEventListener("DOMContentLoaded", function() {
         recentSearches.classList.remove("hidden");
     }
 
+    function showSuccessMessage() {
+        const message = document.getElementById('successMessage');
+        message.classList.remove("opacity-0");
+        message.classList.add("opacity-100");
+
+        // Hide after 3 seconds
+        setTimeout(() => {
+            message.classList.remove("opacity-100");
+            message.classList.add("opacity-0");
+        }, 3000);
+      }
+
     // Event Listeners
     searchBtn.addEventListener("click", () => {
-        if (cityInput.value) fetchWeather(cityInput.value);
+        if (cityInput.value) {
+            fetchWeather(cityInput.value);
+        }else{
+            showSuccessMessage();
+        }
     });
 
     locationBtn.addEventListener("click", getLocation);
