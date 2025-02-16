@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         try {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`);
             const data = await response.json();
+            console.log(data);
 
             if (response.ok) {
                 displayCurrentWeather(data);
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to display current weather
     function displayCurrentWeather(data) {
-        document.getElementById("cityName").textContent = `${data.name} (${new Date().toISOString().split('T')[0]})`;
+        document.getElementById("cityName").textContent = `${data.name} (${new Date().toISOString().split('T')[0].split('-').reverse().join('-')})`;
         document.getElementById("weatherDesc").textContent = data.weather[0].description;
         document.getElementById("temperature").textContent = data.main.temp;
         document.getElementById("windSpeed").textContent = data.wind.speed;
@@ -52,14 +53,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
         for (let i = 0; i < forecastData.length; i += 8) { // Get one forecast per day
             const day = forecastData[i];
-            const date = day.dt_txt.split(" ")[0];
+            const date = day.dt_txt.split(" ")[0].split('-').reverse().join('-');
+            console.log(day);
+            console.log(date);
+            const day_value = new Date(day.dt_txt.split(" ")[0]);
+            const dayOfWeek = new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(day_value);
+            console.log(day_value);
+            console.log(dayOfWeek);
             const temp = day.main.temp;
             const wind = day.wind.speed;
             const humidity = day.main.humidity;
 
             const card = `
-                <div class="bg-gray-800 text-white p-3 rounded-lg">
-                    <p class="text-lg font-semibold">${date}</p>
+                <div class="bg-gradient-to-r from-blue-400 to-purple-600 text-white p-3 rounded-lg">
+                    <p class="text-lg text-center font-semibold">${date}</p>
+                    <p class="text-lg text-center font-semibold">${dayOfWeek}</p>
                     <p>🌡️ Temp: ${temp}°C</p>
                     <p>💨 Wind: ${wind} m/s</p>
                     <p>💧 Humidity: ${humidity}%</p>

@@ -16,7 +16,7 @@
             <h1 class="text-2xl font-bold text-center text-white bg-gradient-to-r from-blue-400 to-purple-600 py-3 rounded-lg">Weather Dashboard</h1>
     
             <!-- Search Section -->
-            <div class="mt-4 flex items-center gap-3">
+            <div class="mt-4 flex flex-col md:flex-row items-center gap-3">
                 <select id="recentSearches" class="w-full p-2 border rounded-lg hidden">
                     <option value="">Recent Searches</option>
                 </select>
@@ -24,7 +24,7 @@
                     class="w-full p-2 border rounded-lg focus:outline-none">
                 <button id="search_Btn" class="bg-blue-400 w-24 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md">Search</button>
                 <span class="font-bold">Or</span>
-                <button id="locationBtn" class="bg-purple-600 w-80 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md">Use Current Location</button>
+                <button id="locationBtn" class="bg-purple-600 w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md">📌Use Current Location</button>
             </div>
 
             <!-- Recent Searches Dropdown -->
@@ -33,7 +33,7 @@
             </div>
     
             <!-- Current Weather Section -->
-            <div id="currentWeather" class="mt-6 bg-blue-200 p-4 rounded-lg hidden">
+            <div id="currentWeather" class="mt-6 bg-blue-200 p-4 rounded-lg hidden"> 
                 <h2 class="text-xl font-semibold" id="cityName"></h2>
                 <p id="weatherDesc" class="text-lg"></p>
                 <p>🌡️ <span id="temperature"></span>°C</p>
@@ -42,8 +42,10 @@
             </div>
     
             <!-- 5-Day Forecast -->
-            <h3 class="text-xl font-semibold mt-6">5-Day Forecast</h3>
-            <div id="forecastContainer" class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-3"></div>
+            <h3 class="text-xl text-center font-semibold mt-6">5-Day Forecast</h3>
+            <div id="forecastContainer" class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-3">
+
+            </div>
     
             
         </div>
