@@ -13,11 +13,11 @@
         <Span class="text-4xl font-bold center">Weather Forecast Application</Span>     
     </header>
     <section class="bg-gradient-to-r from-blue-400 to-purple-600 flex items-start justify-center min-h-screen">
-        <div class="w-full max-w-4xl p-5 bg-white shadow-lg rounded-lg">
+        <div class="md:w-full max-w-4xl p-5 bg-white shadow-lg rounded-lg">
             <h1 class="text-2xl font-bold text-center text-white bg-gradient-to-r from-blue-400 to-purple-600 py-3 rounded-lg">Weather Dashboard</h1>
     
             <!-- Search Section -->
-            <div class="mt-4 flex items-center gap-3">
+            <div class="mt-4 flex flex-col md:flex-row items-center gap-3">
                 <!-- Recent Searches Dropdown -->
                 <select id="recentSearches" class="w-full p-2 border rounded-lg hidden" aria-label="recentSearches">
                     <option value="">Recent Searches</option>
@@ -27,12 +27,12 @@
                 <button id="search_Btn" class="bg-blue-400 w-24 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
                                                  hover:bg-blue-500 hover:shadow-lg hover:scale-105 transition duration-300">Search</button>
                 <span class="font-bold">Or</span>
-                <button id="locationBtn" class="bg-purple-600 w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
+                <button id="locationBtn" class="bg-purple-600 md:w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
                                                 hover:bg-purple-700 hover:shadow-lg hover:scale-105 transition duration-300">📌Use Current Location</button>
             </div>
 
             <!-- Current Weather Section -->
-            <div id="currentWeather" class="card mt-6 bg-blue-200 p-4 rounded-lg hidden">
+            <div id="currentWeather" class="card md:w-full mt-6 bg-blue-200 p-4 rounded-lg hidden">
                 <h2 class="text-xl font-bold" id="cityName"></h2>
                 <p id="sectiondate" class="text-lg font-semibold"></p>
                 <p id="weatherDesc" class="text-lg"></p>
