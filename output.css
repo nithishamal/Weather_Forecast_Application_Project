@@ -830,6 +830,9 @@
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
   .w-100 {
     width: calc(var(--spacing) * 100);
   }
@@ -838,6 +841,12 @@
   }
   .w-24 {
     width: calc(var(--spacing) * 24);
+  }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
+  }
+  .w-370 {
+    width: calc(var(--spacing) * 370);
   }
   .w-\[600px\] {
     width: 600px;
