@@ -13,9 +13,8 @@
         <Span class="text-4xl font-bold center">Weather Forecast Application</Span>     
     </header>
     <section class="bg-gradient-to-r from-blue-400 to-purple-600 flex items-start justify-center min-h-screen">
-        <div class="md:w-full max-w-4xl p-5 bg-white shadow-lg rounded-lg">
-            <h1 class="text-2xl font-bold text-center text-white bg-gradient-to-r from-blue-400 to-purple-600 py-3 rounded-lg">Weather Dashboard</h1>
-    
+        <div class=" md:w-full max-w-4xl p-5 bg-white shadow-lg rounded-lg">
+            
             <!-- Search Section -->
             <div class="mt-4 flex flex-col md:flex-row items-center gap-3">
                 <!-- Recent Searches Dropdown -->
@@ -27,20 +26,23 @@
                 <button id="search_Btn" class="bg-blue-400 w-24 font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
                                                  hover:bg-blue-500 hover:shadow-lg hover:scale-105 transition duration-300">Search</button>
                 <span class="font-bold">Or</span>
-                <button id="locationBtn" class="bg-purple-600 md:w-full font-bold text-white h-12 px-4 py-2 rounded-lg shadow-md
+                <button id="locationBtn" class="bg-purple-600 md:w-full font-bold text-white h-12 py-2 rounded-lg shadow-md
                                                 hover:bg-purple-700 hover:shadow-lg hover:scale-105 transition duration-300">📌Use Current Location</button>
             </div>
 
             <!-- Current Weather Section -->
-            <div id="currentWeather" class="card md:w-full mt-6 bg-blue-200 p-4 rounded-lg hidden">
-                <h2 class="text-xl font-bold" id="cityName"></h2>
-                <p id="sectiondate" class="text-lg font-semibold"></p>
-                <p id="weatherDesc" class="text-lg"></p>
-                <p>🌡️ <span id="temperature"></span>°C</p>
-                <p>💨 Wind: <span id="windSpeed"></span> m/s</p>
-                <p>💧 Humidity: <span id="humidity"></span>%</p>
+            <div class="flex items-center justify-center">
+                <div id="currentWeather" class= "card w-100 mt-4 rounded-lg bg-blue-200 p-4 hidden">
+                    <h2 class="text-xl text-center font-bold" id="cityName"></h2>
+                    <p id="sectiondate" class="text-lg text-center font-semibold"></p>
+                    <img id="weather-icon" class="w-16 h-16 block mx-auto" src="weather-icons.png" alt="Weather Icon">
+                    <p id="weatherDesc" class="text-lg text-center"></p>                     
+                    <p class="text-center">🌡️ <span id="temperature"></span>°C</p>
+                    <p class="text-center">💨 Wind: <span id="windSpeed"></span> m/s</p>
+                    <p class="text-center">💧 Humidity: <span id="humidity"></span>%</p>
+                </div>
             </div>
-    
+
             <!-- 5-Day Forecast -->
              <div id="dayforecast" class="hidden">
                 <h3 class="text-xl text-center font-semibold mt-6">5-Day Forecast</h3>
